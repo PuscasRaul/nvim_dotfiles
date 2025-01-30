@@ -1,4 +1,5 @@
 require("primeagen_tut.remap")
+require("primeagen_tut.lazy")
 print("hello from the primeagen")
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
