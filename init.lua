@@ -1,2 +1,0 @@
-require("primeagen_tut")
-
