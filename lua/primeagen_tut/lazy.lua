@@ -17,34 +17,41 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 local plugins = {
-{
-	'nvim-telescope/telescope.nvim', tag = '0.1.8',
-	dependencies = { {'nvim-lua/plenary.nvim'} }
+	{
+		'nvim-telescope/telescope.nvim', tag = '0.1.8',
+		dependencies = { {'nvim-lua/plenary.nvim'} }
   },
-
-  ({
-	  'rose-pine/neovim',
-	  name = 'rose-pine',
-	  config = function()
-		  vim.cmd('colorscheme rose-pine')
-	  end
- 	}),
-
- 	'nvim-treesitter/nvim-treesitter', build = ':TSUpdate',
+	'HiPhish/rainbow-delimiters.nvim',
+	'EdenEast/nightfox.nvim',
+	'rose-pine/neovim',
+	'RRethy/vim-illuminate',
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	{
+		'nvim-lualine/lualine.nvim',
+		dependencies = { 'nvim-tree/nvim-web-devicons' }
+	},
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{
+		'nvim-treesitter/nvim-treesitter',
+		build = ':TSUpdate',
+	},
+	{
+		"zenbones-theme/zenbones.nvim",
+		dependencies = "rktjmp/lush.nvim",
+		lazy = false,
+		priority = 1000,
+		},
   'nvim-treesitter/playground',
   'ThePrimeagen/harpoon',
   'mbbill/undotree',
   'tpope/vim-fugitive',
   'folke/trouble.nvim',
  	'kovetskiy/neovim-move', build = ':UpdateRemotePlugins',
-	{
-		'romgrk/barbar.nvim',
-		dependencies = {
-			{'lewis6991/gitsigns.nvim'},
-			{'nvim-tree/nvim-web-devicons'},
-		}
-	},
-	--lsp zero
   {
     'VonHeikemen/lsp-zero.nvim',
     dependencies = {
@@ -66,6 +73,23 @@ local plugins = {
     }
   },
 	'mfussenegger/nvim-jdtls',
-}
+	'jiangmiao/auto-pairs',
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- add any options here
+		},
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		}
+	}
 
+
+}
 require("lazy").setup(plugins)
