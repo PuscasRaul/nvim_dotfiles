@@ -11,6 +11,7 @@ require('mason-lspconfig').setup({
 		'lemminx',
 		'unocss',
 		'omnisharp',
+    'vtsls',
 	}
 })
 
@@ -101,18 +102,9 @@ vim.filetype.add({
   }
 })
 
--- require'lspconfig'.vtsls.setup{}
--- require'lspconfig'.pyright.setup{}
--- require'lspconfig'.lua_ls.setup{}
--- require'lspconfig'.clangd.setup{}
--- require'lspconfig'.sqlls.setup{}
--- require'lspconfig'.superhtml.setup{}
--- vim.filetype.add({
--- 	extension = {
--- 		fxml = "xml",
--- 		axaml = "xml"
--- 	}
--- })
--- require'lspconfig'.lemminx.setup{}
--- require'lspconfig'.csharp_ls.setup{}
--- require'lspconfig'.unocss.setup{}
+vim.lsp.config('csharp_ls', {
+  -- Server-specific settings. See `:help lsp-quickstart`
+  settings = {
+    ['csharp_ls'] = {},
+  },
+})

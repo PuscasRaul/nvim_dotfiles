@@ -22,7 +22,6 @@ local plugins = {
 		dependencies = { {'nvim-lua/plenary.nvim'} }
   },
 	'HiPhish/rainbow-delimiters.nvim',
-	'EdenEast/nightfox.nvim',
 	'rose-pine/neovim',
 	'RRethy/vim-illuminate',
 	{
@@ -35,30 +34,34 @@ local plugins = {
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons' }
 	},
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{
 		'nvim-treesitter/nvim-treesitter',
 		build = ':TSUpdate',
 	},
-	{
-		"zenbones-theme/zenbones.nvim",
-		dependencies = "rktjmp/lush.nvim",
-		lazy = false,
-		priority = 1000,
-		},
-  'nvim-treesitter/playground',
+	'nvim-treesitter/playground',
   'ThePrimeagen/harpoon',
   'mbbill/undotree',
   'tpope/vim-fugitive',
   'folke/trouble.nvim',
+  'mfussenegger/nvim-jdtls',
  	'kovetskiy/neovim-move', build = ':UpdateRemotePlugins',
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+  },
   {
     'VonHeikemen/lsp-zero.nvim',
     dependencies = {
 			{'neovim/nvim-lspconfig'},
-			{'williamboman/mason.nvim'},
-			{'williamboman/mason-lspconfig.nvim'},
-
+			{
+        'williamboman/mason-lspconfig.nvim',
+        version = 'v1.32.0'
+      },
+      {
+        'mason-org/mason.nvim',
+        version = "v1.11.0"
+      },
 			--Autocompletion
 			{'hrsh7th/nvim-cmp'},
 			{'hrsh7th/cmp-buffer'},
@@ -72,8 +75,6 @@ local plugins = {
 			{'rafamadriz/friendly-snippets'},
     }
   },
-	'mfussenegger/nvim-jdtls',
-	'jiangmiao/auto-pairs',
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
@@ -89,7 +90,5 @@ local plugins = {
 			"rcarriga/nvim-notify",
 		}
 	}
-
-
 }
 require("lazy").setup(plugins)
